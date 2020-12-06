@@ -10,5 +10,9 @@ namespace MVC_Lib1
             date = date.AddYears(-age);
             return date.ToShortDateString();
         }
+        public static string getDetails(DateTime date,string summary,int cal)
+        {
+            return $"{summary} with degree {cal} at {date.ToShortDateString()}";
+        }
     }
 }

@@ -1,9 +1,8 @@
-﻿version: '3.8'
+﻿version: '3.4'
 services:
    ms-sql-server:
         image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
         container_name: sqlserver_express
-        hostname: sqlserver
         environment:
             ACCEPT_EULA: "Y"
             SA_PASSWORD: "AAaa@123456"
@@ -15,9 +14,7 @@ services:
         image: mohamed/mvc_application
         container_name: mvc_application
         depends_on: 
-            - "ms-sql-server"
-        volumes:
-            - .:/code
+            - ms-sql-server
         environment:           
             DBServer: "ms-sql-server"
             ASPNETCORE_ENVIRONMENT: "Development"

@@ -1,3 +1,6 @@
+﻿
+
+
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
 #get base image (.Net core sdk)
@@ -6,6 +9,7 @@ WORKDIR /app
 
 #copy csproj and restore
 COPY ["MVC.csproj", "./"]
+COPY ["MVC_Lib1/MVC_Lib1.csproj", "MVC_Lib1/"]
 RUN dotnet restore "MVC.csproj"
 
 #copy every thing else and build
