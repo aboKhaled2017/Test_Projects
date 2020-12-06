@@ -1,0 +1,9 @@
+version: "3"
+services:
+ mohamed_mvc2app:
+  container_name: "mohamed_mvc2_co"
+  build: 
+   context: ./src
+   dockerfile: MVC2/Dockerfile
+  ports:
+   - "1000:80"
