@@ -13,19 +13,15 @@ services:
    mvc-app:
         build:
          context: ./src
-         dockerfile: ./MVC/Dockerfile
+         dockerfile: ./MVC/Dockerfile-WithoutWaitTool
         image: mohamed/mvc_application
         container_name: mvc_application
         depends_on: 
             - ms-sql-server
+        restart: on-failure:15
         environment:           
             DBServer: "ms-sql-server"
             ASPNETCORE_ENVIRONMENT: "Development"
-            WAIT_HOSTS: ms-sql-server:1433
-            WAIT_HOSTS_TIMEOUT: 300
-            WAIT_BEFORE_HOSTS: 20
-            WAIT_HOST_CONNECT_TIMEOUT: 10
-            WAIT_SLEEP_INTERVAL: 10
         ports:
             - "1002:80"
       
